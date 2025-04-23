@@ -4,6 +4,7 @@ import { Link } from 'expo-router';
 import axios from 'axios';
 import { FontAwesome } from '@expo/vector-icons';
 
+
 type Product = {
   id: number;
   title: string;
@@ -17,14 +18,20 @@ type Product = {
   };
 };
 
+
+
+
 export default function Index() {
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [featured, setFeatured] = useState<Product[]>([]);
 
+
   useEffect(() => {
     fetchProducts();
   }, []);
+
 
   const fetchProducts = async () => {
     try {
@@ -58,40 +65,48 @@ export default function Index() {
     );
   }
 
+
+
+
+
   return (
+
     <ScrollView className="flex-1 bg-gray-50" showsVerticalScrollIndicator={false}>
       {/* Hero Section */}
       <View className="p-5 bg-blue-500 mb-5">
         <Text className="text-2xl font-bold text-white mb-2">Welcome to RacksNClass</Text>
-        <Text className="text-base text-white/80">Discover Amazing Product</Text>
+        <Text className="text-base text-white/80">Discover Amazing Products</Text>
       </View>
+
 
       {/* Featured Products */}
       <View className="p-4">
         <Text className="text-2xl font-bold text-gray-800 mb-4">Featured Products</Text>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false} 
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
           className="-mx-4 px-4"
         >
-          {featured.map((product) => (
-            <Link href={`/product/${product.id}`} asChild key={product.id}>
-              <TouchableOpacity className="w-[200px] mr-4 bg-white rounded-xl shadow-sm">
-                <Image 
-                  source={{ uri: product.image }} 
-                  className="w-full h-[150px] rounded-t-xl resize-cover" 
-                />
-                <View className="p-3">
-                  <Text className="text-base font-semibold text-gray-800 mb-1" numberOfLines={1}>
-                    {product.title}
-                  </Text>
-                  <Text className="text-lg font-bold text-blue-500">
-                    ${product.price}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </Link>
-          ))}
+
+          {
+            featured.map((product) => (
+              <Link href={`/product/${product.id}`} asChild key={product.id}>
+                <TouchableOpacity className="w-[200px] mr-4 bg-white rounded-xl shadow-sm">
+                  <Image
+                    source={{ uri: product.image }}
+                    className="w-full h-[150px] rounded-t-xl resize-cover"
+                  />
+                  <View className="p-3">
+                    <Text className="text-base font-semibold text-gray-800 mb-1" numberOfLines={1}>
+                      {product.title}
+                    </Text>
+                    <Text className="text-lg font-bold text-blue-500">
+                      ${product.price}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Link>
+            ))}
         </ScrollView>
       </View>
 
@@ -99,30 +114,31 @@ export default function Index() {
       <View className="p-4">
         <Text className="text-2xl font-bold text-gray-800 mb-4">All Products</Text>
         <View className="flex-row flex-wrap justify-between gap-4">
-          {products.map((product) => (
-            <Link href={`/product/${product.id}`} asChild key={product.id}>
-              <TouchableOpacity className="w-[47%] bg-white rounded-xl shadow-sm">
-                <Image 
-                  source={{ uri: product.image }} 
-                  className="w-full h-[150px] rounded-t-xl resize-contain" 
-                />
-                <View className="p-3">
-                  <Text className="text-sm font-semibold text-gray-800 mb-1" numberOfLines={2}>
-                    {product.title}
-                  </Text>
-                  <Text className="text-base font-bold text-blue-500 mb-1">
-                    ${product.price}
-                  </Text>
-                  <View className="flex-row items-center">
-                    {renderStars(product.rating.rate)}
-                    <Text className="ml-1 text-xs text-gray-400">
-                      ({product.rating.count})
+          {
+            products.map((product) => (
+              <Link href={`/product/${product.id}`} asChild key={product.id}>
+                <TouchableOpacity className="w-[47%] bg-white rounded-xl shadow-sm">
+                  <Image
+                    source={{ uri: product.image }}
+                    className="w-full h-[150px] rounded-t-xl resize-contain"
+                  />
+                  <View className="p-3">
+                    <Text className="text-sm font-semibold text-gray-800 mb-1" numberOfLines={2}>
+                      {product.title}
                     </Text>
+                    <Text className="text-base font-bold text-blue-500 mb-1">
+                      ${product.price}
+                    </Text>
+                    <View className="flex-row items-center">
+                      {renderStars(product.rating.rate)}
+                      <Text className="ml-1 text-xs text-gray-400">
+                        ({product.rating.count})
+                      </Text>
+                    </View>
                   </View>
-                </View>
-              </TouchableOpacity>
-            </Link>
-          ))}
+                </TouchableOpacity>
+              </Link>
+            ))}
         </View>
       </View>
     </ScrollView>
