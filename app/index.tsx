@@ -63,7 +63,7 @@ export default function Index() {
       {/* Hero Section */}
       <View className="p-5 bg-blue-500 mb-5">
         <Text className="text-2xl font-bold text-white mb-2">Welcome to RacksNClass</Text>
-        <Text className="text-base text-white/80">Discover Amazing Products</Text>
+        <Text className="text-base text-white/80">Discover Amazing Product</Text>
       </View>
 
       {/* Featured Products */}
