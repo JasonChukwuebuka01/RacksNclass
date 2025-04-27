@@ -81,7 +81,7 @@ export default function Index() {
 
       {/* Featured Products */}
       <View className="p-4">
-        <Text className="text-2xl font-bold text-gray-800 mb-4">Featured Products</Text>
+        <Text className="text-2xl font-bold text-gray-800 mb-4">Featured Productss</Text>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
