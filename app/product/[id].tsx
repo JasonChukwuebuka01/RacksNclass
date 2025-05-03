@@ -32,7 +32,7 @@ export default function ProductDetail() {
       setProduct(response.data);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching product:', error);
+      console.error('Error fetching products:', error);
       setLoading(false);
     }
   };

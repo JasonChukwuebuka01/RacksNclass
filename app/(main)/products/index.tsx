@@ -20,7 +20,7 @@ type Product = {
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [featured, setFeatured] = useState<Product[]>([]);
+  
 
   useEffect(() => {
     fetchProducts();
@@ -30,7 +30,6 @@ export default function ProductsPage() {
     try {
       const response = await axios.get('https://fakestoreapi.com/products');
       setProducts(response.data);
-      setFeatured(response.data.slice(0, 3));
       setLoading(false);
     } catch (error) {
       console.error('Error fetching products:', error);
