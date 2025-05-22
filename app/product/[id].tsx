@@ -98,7 +98,7 @@ export default function ProductDetail() {
           }}
         >
           <FontAwesome name="shopping-cart" size={20} color="white" className="mr-2" />
-          <Text className="text-white text-lg font-bold">Add to Cartt</Text>
+          <Text className="text-white text-lg font-bold">Add to Carttt</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
