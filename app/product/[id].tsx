@@ -60,7 +60,7 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <View className="flex-1">
-        <Text className="text-lg text-red-500 text-center mt-5">Product not found</Text>
+        <Text className="text-lg text-red-500 text-center mt-5">Product not founddd</Text>
       </View>
     );
   }
