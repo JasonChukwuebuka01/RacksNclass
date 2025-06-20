@@ -112,7 +112,7 @@ export default function Index() {
 
       {/* All Products */}
       <View className="p-4">
-        <Text className="text-2xl font-bold text-gray-800 mb-4">All Products</Text>
+        <Text className="text-2xl font-bold text-gray-800 mb-4">All Productss</Text>
         <View className="flex-row flex-wrap justify-between gap-4">
           {
             products.map((product) => (
